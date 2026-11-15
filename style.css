@@ -1,5 +1,5 @@
 /* style.css — Valientes: Daniel 1–7 «No hay dios que pueda librar como este» */
-:root{--v:2;--f-title:'Fredoka',system-ui,sans-serif;--f-body:'Nunito',system-ui,sans-serif;--f-note:'Patrick Hand',cursive;
+:root{--v:3;--f-title:'Fredoka',system-ui,sans-serif;--f-body:'Nunito',system-ui,sans-serif;--f-note:'Patrick Hand',cursive;
 --b1:#0887F5;--b2:#24B5EF;--b3:#7CB8F0;--p:#C97BF0;--l:#9589EB;--ink:#1c2347;--card:#fff;--ok:#16a05a;--no:#e0393e;--bd:#cfe0fb;
 --gold:#f5b301;--fire:#ff7a1a;box-sizing:border-box}
 *,*::before,*::after{box-sizing:inherit}
@@ -192,3 +192,9 @@ body.calm *{animation:none!important;transition:none!important}
 .videoCard a.vlink:hover{transform:translateY(-2px)}
 #weekCount{display:inline-block;background:#fff;padding:6px 16px;border-radius:99px;box-shadow:0 4px 14px rgba(0,0,0,.25)}
 #weekCount:empty{display:none}
+
+/* ---- v3: la escritura va con blur y la indicación de buscar queda visible ---- */
+.mcard .ins{margin:0;border-radius:14px;padding:8px 12px;background:rgba(255,255,255,.95);color:var(--ink);font-weight:800}
+.mcard .ins mark{background:linear-gradient(transparent 55%,#ffe45c 55%);color:var(--ink);padding:0 3px;border-radius:3px}
+.mcard .hid.verse{background:rgba(0,0,0,.2);color:#fff;font-family:Georgia,'Times New Roman',serif;font-weight:400;font-size:clamp(.98rem,2.3vw,1.18rem);line-height:1.5;padding:10px 12px}
+.mcard .hid.verse.long{font-size:clamp(.9rem,2vw,1.05rem)}
