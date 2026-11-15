@@ -1,0 +1,316 @@
+{
+  "meta": {
+    "clickSound": "gota-de-agua.mp3",
+    "logo": "Nuevo-Simbolo-de-la-Iglesia.webp",
+    "cover": "Daniel Interprets Nebuchadnezzar’s Dream [Daniel interpreta el sueño de Nabucodonosor], por Grant Romney Clawson.jpg",
+    "lideres": "Líderes de Egipto y Babilonia.jpg",
+    "horno": "Shadrach, Meshach, and Abednego in the Fiery Furnace [Sadrac, Mesac y Abed-nego en el horno ardiente], por William Maughan.jpeg",
+    "leones": "Daniel en la fosa de los leones.jpeg",
+    "colorear": "Confiar en la palabra de sabiduria.jpeg"
+  },
+  "cards": [
+    {
+      "icon": "🥗",
+      "title": "¡Una decisión valiente!",
+      "ref": "Daniel 1:8",
+      "v": "Y Daniel se propuso en su corazón no contaminarse con la ración de la comida del rey ni con el vino que él bebía; pidió, por tanto, al jefe de los eunucos que no se le obligara a contaminarse.",
+      "q": "¿Qué decidió Daniel «en su corazón»? ¿Qué decisión valiente puedes tomar tú esta semana?"
+    },
+    {
+      "icon": "🙏",
+      "title": "¡Oraron juntos!",
+      "ref": "Daniel 2:17–18",
+      "v": "Luego Daniel fue a su casa e hizo saber el asunto a Ananías, Misael y Azarías, sus compañeros, Para que pidiesen misericordias del Dios del cielo con respecto a este misterio, a fin de que Daniel y sus compañeros no pereciesen con los otros sabios de Babilonia.",
+      "q": "Cuando Daniel tuvo un gran problema, ¿qué hizo primero? ¿Con quién puedes orar tú cuando algo te preocupa?"
+    },
+    {
+      "icon": "💡",
+      "title": "¡Dios revela lo escondido!",
+      "ref": "Daniel 2:22",
+      "v": "Él revela lo profundo y lo escondido; conoce lo que está en tinieblas, y la luz mora con él.",
+      "q": "¿Qué cosa difícil te ha ayudado Dios a entender o a resolver?"
+    },
+    {
+      "icon": "🪨",
+      "title": "¡Una piedra que llena la tierra!",
+      "ref": "Daniel 2:44",
+      "v": "Y en los días de estos reyes, el Dios del cielo levantará un reino que no será jamás destruido ni será dejado el reino a otro pueblo; despedazará y consumirá a todos estos reinos, pero él permanecerá para siempre.",
+      "q": "La piedra representa la Iglesia de Jesucristo. ¿Qué puedes hacer tú para ayudarla a crecer?"
+    },
+    {
+      "icon": "🔥",
+      "title": "¡Él nos librará!",
+      "ref": "Daniel 3:17–18",
+      "v": "Si es así, nuestro Dios a quien servimos puede librarnos del horno de fuego ardiente; y de tus manos, oh rey, él nos librará. Y si no, has de saber, oh rey, que no serviremos a tus dioses ni tampoco adoraremos la estatua que has levantado.",
+      "q": "Dijeron «y si no…»: aunque Dios no los salvara del fuego, ¡igual serían fieles! ¿Qué te enseña eso sobre la fe?"
+    },
+    {
+      "icon": "👤",
+      "title": "¡Cuatro en el fuego!",
+      "ref": "Daniel 3:25",
+      "v": "Respondió él y dijo: He aquí que yo veo cuatro hombres sueltos, que se pasean en medio del fuego sin sufrir ningún daño; y el aspecto del cuarto es semejante a un hijo de los dioses.",
+      "q": "¿Quién estaba con ellos dentro del horno? (Pista: busca Daniel 3:28). ¿Quién te acompaña a ti en tus pruebas?"
+    },
+    {
+      "icon": "✋",
+      "title": "¡Una mano escribe en la pared!",
+      "ref": "Daniel 5:25–27",
+      "v": "Y la escritura que escribió es: MENE, MENE, TEKEL, UPARSIN. Y esta es la interpretación del asunto: MENE: Dios ha contado tu reino y le ha puesto fin. TEKEL: Pesado has sido en balanza y fuiste hallado falto.",
+      "q": "TEKEL quiere decir «fuiste hallado falto». ¿Qué cosas buenas no deben faltar nunca en tu vida?"
+    },
+    {
+      "icon": "🪟",
+      "title": "¡Tres veces al día!",
+      "ref": "Daniel 6:10",
+      "v": "Y Daniel, cuando supo que el documento había sido firmado, entró en su casa, y abiertas las ventanas de su aposento que daban hacia Jerusalén, se hincaba de rodillas tres veces al día, y oraba y daba gracias delante de su Dios, como lo solía hacer antes.",
+      "q": "Daniel siguió orando aunque estaba prohibido. ¿Por qué crees que orar era tan importante para él? ¿Cuándo oras tú?"
+    },
+    {
+      "icon": "🦁",
+      "title": "¡Cerró la boca de los leones!",
+      "ref": "Daniel 6:22",
+      "v": "Mi Dios envió a su ángel, el cual cerró la boca de los leones, para que no me hiciesen daño, porque ante él fui hallado inocente; y aun delante de ti, oh rey, yo no he hecho nada malo.",
+      "q": "¿Cómo cuidó Dios a Daniel? ¿Cómo te ha cuidado a ti o a tu familia?"
+    },
+    {
+      "icon": "👑",
+      "title": "¡Él salva y libra!",
+      "ref": "Daniel 6:27",
+      "v": "Él salva y libra, y hace señales y maravillas en el cielo y en la tierra; él ha librado a Daniel del poder de los leones.",
+      "q": "Un rey que no conocía a Dios terminó diciendo esto. ¿Cómo pueden tus buenas decisiones ayudar a otros a creer en Dios?"
+    }
+  ],
+  "jose": [
+    {
+      "icon": "🏠",
+      "t": "Lejos de casa siendo jóvenes",
+      "j": "Tenía 17 años. Sus hermanos lo vendieron por veinte piezas de plata y lo llevaron a Egipto.",
+      "jr": "Génesis 37:2, 28",
+      "d": "Era un muchacho cuando Nabucodonosor lo llevó de Jerusalén a Babilonia, junto con Ananías, Misael y Azarías.",
+      "dr": "Daniel 1:1–6"
+    },
+    {
+      "icon": "📛",
+      "t": "Les cambiaron el nombre",
+      "j": "Faraón le puso un nombre egipcio: Zafnat-panea.",
+      "jr": "Génesis 41:45",
+      "d": "El jefe de los eunucos le puso un nombre babilonio: Beltsasar.",
+      "dr": "Daniel 1:7"
+    },
+    {
+      "icon": "🛡️",
+      "t": "Fieles ante la tentación",
+      "j": "«¿Cómo, pues, haría yo este gran mal y pecaría contra Dios?»",
+      "jr": "Génesis 39:9",
+      "d": "«Se propuso en su corazón no contaminarse con la ración de la comida del rey».",
+      "dr": "Daniel 1:8"
+    },
+    {
+      "icon": "🤝",
+      "t": "Dios estaba con ellos",
+      "j": "«Jehová estaba con José y le extendió su misericordia, y le dio gracia».",
+      "jr": "Génesis 39:21",
+      "d": "«Puso Dios a Daniel en gracia y en buena voluntad con el jefe de los eunucos».",
+      "dr": "Daniel 1:9"
+    },
+    {
+      "icon": "💭",
+      "t": "Interpretaron los sueños del rey… ¡y le dieron la gloria a Dios!",
+      "j": "«No está en mí; Dios será quien responda paz a Faraón».",
+      "jr": "Génesis 41:16",
+      "d": "«Hay un Dios en los cielos que revela los misterios».",
+      "dr": "Daniel 2:28"
+    },
+    {
+      "icon": "⛓️",
+      "t": "Castigados sin tener la culpa",
+      "j": "Lo acusaron con mentiras y lo pusieron en la cárcel.",
+      "jr": "Génesis 39:20",
+      "d": "Lo echaron al foso de los leones por orar a su Dios.",
+      "dr": "Daniel 6:16"
+    },
+    {
+      "icon": "👑",
+      "t": "Honrados por el rey",
+      "j": "Faraón le dio su anillo, ropas de lino finísimo y un collar de oro, y lo puso a cargo de toda la tierra de Egipto.",
+      "jr": "Génesis 41:40–43",
+      "d": "Fue gobernador de la provincia de Babilonia; Belsasar lo vistió de púrpura, con un collar de oro, como tercer gobernante del reino.",
+      "dr": "Daniel 2:48; 5:29"
+    },
+    {
+      "icon": "🌍",
+      "t": "Sirvieron a imperios en su momento más poderoso",
+      "j": "En el hambre, «toda la tierra venía a Egipto para comprar» alimento, y José lo administraba.",
+      "jr": "Génesis 41:54–57",
+      "d": "«Tú, oh rey, eres rey de reyes… tú eres aquella cabeza de oro». Daniel sirvió a varios reyes: Nabucodonosor, Belsasar, Darío y Ciro.",
+      "dr": "Daniel 2:37–38; 6:28"
+    },
+    {
+      "icon": "🌟",
+      "t": "Su fe bendijo a muchos",
+      "j": "Salvó del hambre a Egipto y a su familia, y perdonó a sus hermanos: «Dios lo encaminó a bien».",
+      "jr": "Génesis 45:5; 50:20",
+      "d": "Por su fe, los reyes reconocieron al Dios verdadero: «él es el Dios viviente».",
+      "dr": "Daniel 2:47; 6:26"
+    }
+  ],
+  "joseQ": [
+    "José y Daniel estaban lejos de casa y nadie los obligaba a ser fieles… ¡pero lo fueron! ¿Dónde te toca a ti elegir lo correcto aunque tus papás no te vean (en la escuela, con amigos, en internet)?",
+    "Los dos dijeron que su sabiduría venía de Dios. ¿Qué talento te ha dado Dios a ti, y cómo puedes usarlo para ayudar a los demás?"
+  ],
+  "match": [
+    [
+      "🥗 Legumbres y agua",
+      "Daniel cuidó su cuerpo y Dios lo bendijo"
+    ],
+    [
+      "🗿 La gran estatua",
+      "Los reinos del mundo, que se acaban"
+    ],
+    [
+      "🪨 La piedra cortada",
+      "La Iglesia de Jesucristo, que llenará la tierra"
+    ],
+    [
+      "🔥 El horno de fuego",
+      "No adoraron la estatua del rey"
+    ],
+    [
+      "👤 El cuarto en el fuego",
+      "Dios envió a su ángel y los libró"
+    ],
+    [
+      "✋ La mano en la pared",
+      "MENE, MENE, TEKEL, UPARSIN"
+    ],
+    [
+      "🦁 El foso de los leones",
+      "Daniel siguió orando, aunque estaba prohibido"
+    ]
+  ],
+  "apply": [
+    {
+      "s": "🥤 En una fiesta te ofrecen una bebida que tus papás te han dicho que no es buena para tu cuerpo.",
+      "o": [
+        {
+          "t": "Me la tomo para no quedar mal",
+          "r": "Daniel también tuvo esa presión, ¡y frente al rey! Pidió con respeto otra cosa (Daniel 1:8, 12). ¿Cómo podrías decir «no, gracias» con una sonrisa?"
+        },
+        {
+          "t": "Digo «no, gracias» y pido agua",
+          "r": "¡Como Daniel: legumbres y agua! Dios bendijo su cuerpo y su mente (Daniel 1:15–17)."
+        },
+        {
+          "t": "Le pregunto a un adulto",
+          "r": "Buena idea: Daniel habló con el jefe de los eunucos para buscar una solución (Daniel 1:11–12)."
+        }
+      ]
+    },
+    {
+      "s": "😬 Tus amigos se burlan de un niño y te dicen que si no te burlas tú también, ya no te van a hablar.",
+      "o": [
+        {
+          "t": "Me río con ellos",
+          "r": "Todo el pueblo se inclinó ante la estatua… menos tres amigos valientes (Daniel 3:12). ¿Qué sentirá ese niño?"
+        },
+        {
+          "t": "Me alejo sin decir nada",
+          "r": "Es un primer paso. Sadrac, Mesac y Abed-nego se apoyaron entre ellos. ¿A quién podrías invitar para ayudar juntos?"
+        },
+        {
+          "t": "Defiendo al niño con amabilidad",
+          "r": "¡Eso es ser valiente! Los tres amigos dijeron «no» juntos y Dios estuvo con ellos en el fuego (Daniel 3:18, 25)."
+        }
+      ]
+    },
+    {
+      "s": "🎮 Estás en casa de un amigo y él quiere ver un video que sabes que no está bien.",
+      "o": [
+        {
+          "t": "Lo veo solo un ratito",
+          "r": "Daniel decidió ANTES, «en su corazón», lo que no haría (Daniel 1:8). Decidir antes hace más fácil decir que no."
+        },
+        {
+          "t": "Propongo otro juego",
+          "r": "¡Gran idea! Cambiar de plan con alegría también es una forma de ser fiel."
+        },
+        {
+          "t": "Le pido a mis papás que vengan por mí",
+          "r": "A veces lo más valiente es irse. Tus papás estarán orgullosos de ti."
+        }
+      ]
+    },
+    {
+      "s": "📝 Mañana tienes un examen difícil y estás muy nervioso.",
+      "o": [
+        {
+          "t": "Me preocupo y no hago nada",
+          "r": "Daniel también tuvo un problema enorme (Daniel 2:12). Pero hizo algo: pidió tiempo y oró con sus amigos (2:16–18)."
+        },
+        {
+          "t": "Estudio y oro para pedir ayuda",
+          "r": "¡Como Daniel! Dios les dio «conocimiento y aptitud para aprender» (Daniel 1:17). Tú pones el esfuerzo y Él te ayuda."
+        },
+        {
+          "t": "Le pido a alguien las respuestas",
+          "r": "Copiar no es honrado. Daniel fue «fiel» y no le encontraron falta (Daniel 6:4). Mejor pide ayuda para estudiar."
+        }
+      ]
+    },
+    {
+      "s": "🍽️ En la escuela, unos niños se ríen de ti porque bendices tus alimentos antes de comer.",
+      "o": [
+        {
+          "t": "Dejo de orar para que no se rían",
+          "r": "Daniel oraba «como lo solía hacer antes», aunque le costara el foso (Daniel 6:10). ¿Qué te daría valor a ti?"
+        },
+        {
+          "t": "Oro en silencio, con valor",
+          "r": "¡Muy bien! Puedes orar en tu corazón en cualquier lugar. Dios siempre te escucha."
+        },
+        {
+          "t": "Les explico por qué lo hago",
+          "r": "¡Excelente! Así como Daniel, tu ejemplo puede ayudar a otros a conocer a Dios (Daniel 6:26)."
+        }
+      ]
+    }
+  ],
+  "week": [
+    {
+      "icon": "🙏",
+      "d": "Ora como Daniel",
+      "t": "Un día de esta semana, ora en la mañana, al mediodía y en la noche.",
+      "r": "Daniel 6:10"
+    },
+    {
+      "icon": "🥕",
+      "d": "La prueba de Daniel",
+      "t": "Come una fruta o verdura extra y toma agua en lugar de refresco.",
+      "r": "Daniel 1:12"
+    },
+    {
+      "icon": "🛡️",
+      "d": "¡No, gracias!",
+      "t": "Si alguien te invita a hacer algo malo, di «no, gracias» con respeto.",
+      "r": "Daniel 3:18"
+    },
+    {
+      "icon": "👫",
+      "d": "Amigos que oran",
+      "t": "Invita a un amigo o a tu familia a orar o leer las Escrituras contigo.",
+      "r": "Daniel 2:17–18"
+    },
+    {
+      "icon": "💌",
+      "d": "Da gracias a Dios",
+      "t": "Cuéntale a tu familia algo bueno que Dios hizo por ti esta semana.",
+      "r": "Daniel 2:23"
+    },
+    {
+      "icon": "📖",
+      "d": "Busca y subraya",
+      "t": "Lee con tu familia una de las escrituras que buscamos hoy.",
+      "r": "Daniel 3:17"
+    }
+  ]
+}
