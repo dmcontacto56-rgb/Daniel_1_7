@@ -9,7 +9,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;700&family=Nunito:wght@400;700;800&family=Patrick+Hand&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="carousel.css?v=1">
 <link rel="stylesheet" href="scrollstack.css?v=1">
-<link rel="stylesheet" href="style.css?v=1">
+<link rel="stylesheet" href="style.css?v=2">
 </head>
 <body>
 <header class="top">
@@ -75,7 +75,33 @@
   </div>
 </section>
 
-<!-- 6. MISIÓN DE LA SEMANA -->
+<!-- 6. ¡A COLOREAR! -->
+<section id="s-color" class="full" data-title="¡A colorear!" data-time="5 min">
+  <div class="head"><h2 class="t"><span class="c5">¡A</span> <span class="c1">colorear!</span></h2><button class="rs">↺ Borrar</button></div>
+  <div class="bgscroll" id="colorScroll">
+    <div class="intro"><span class="imgcap">Confiar en la Palabra de Sabiduría</span><button class="scrollHint">⬇ Desliza para colorear</button></div>
+    <div class="bgbody">
+      <div class="card tone0 sheetCard">
+        <p style="margin:0 0 8px"><b>Dios me bendecirá a medida que elija seguir a Jesucristo</b> (Daniel 1; 3; 6). Elige un color y toca una parte del dibujo para rellenarla. En el cuadro en blanco, usa «Dibujar» y dibuja cómo eliges seguir a Jesucristo.</p>
+        <div class="colorTools" id="tools">
+          <button class="modeBtn on" data-mode="fill">🪣 Rellenar</button>
+          <button class="modeBtn" data-mode="draw">✏️ Dibujar</button>
+          <span id="swatches" class="colorTools"></span>
+          <button class="modeBtn" id="undoBtn">↶ Deshacer</button>
+          <button class="modeBtn" id="saveImg">💾 Guardar</button>
+          <button class="modeBtn" id="printBtn">🖨️ Imprimir</button>
+        </div>
+        <div class="sheetWrap" id="sheetWrap" style="margin-top:10px">
+          <canvas id="paint" aria-label="Hoja para colorear: Dios me bendecirá a medida que elija seguir a Jesucristo"></canvas>
+          <canvas id="drawLayer" aria-hidden="true"></canvas>
+          <p class="loading" id="sheetLoading">Cargando la hoja…</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 7. MISIÓN DE LA SEMANA -->
 <section id="s-week" class="full" data-title="Misión semanal" data-time="3 min">
   <div class="head"><h2 class="t"><span class="c3">Misión</span> <span class="c1">de la semana:</span> <span class="c5">¡duerme a los leones!</span></h2><button class="rs">↺ Reiniciar</button></div>
   <div class="bgscroll" id="weekScroll">
@@ -88,79 +114,10 @@
       </div>
       <div class="weekGrid" id="week"></div>
       <p style="text-align:center;margin:0"><b id="weekCount"></b></p>
-    </div>
-  </div>
-</section>
-
-<!-- 7. ¡A COLOREAR! -->
-<section id="s-color" class="full" data-title="¡A colorear!" data-time="5 min">
-  <div class="head"><h2 class="t"><span class="c5">¡A</span> <span class="c1">colorear!</span></h2><button class="rs">↺ Borrar</button></div>
-  <div class="bgscroll" id="colorScroll">
-    <div class="intro"><span class="imgcap">Confiar en la Palabra de Sabiduría</span><button class="scrollHint">⬇ Desliza para colorear</button></div>
-    <div class="bgbody">
-      <div class="card tone0 sheetCard">
-        <p style="margin:0 0 8px"><b>Dios me bendecirá a medida que elija seguir a Jesucristo</b> (Daniel 1; 3; 6). Elige un color y toca una parte del dibujo. En el último cuadro, dibújate eligiendo lo correcto.</p>
-        <div class="colorTools" id="tools">
-          <button class="modeBtn on" data-mode="fill">🪣 Rellenar</button>
-          <button class="modeBtn" data-mode="draw">✏️ Dibujar</button>
-          <span id="swatches" class="colorTools"></span>
-          <button class="modeBtn" id="saveImg">💾 Guardar</button>
-          <button class="modeBtn" id="printBtn">🖨️ Imprimir</button>
-        </div>
-        <div class="sheetWrap" id="sheetWrap" style="margin-top:10px">
-          <svg id="sheet" viewBox="0 0 1000 720" role="img" aria-label="Hoja para colorear de Daniel">
-            <rect x="0" y="0" width="1000" height="720" fill="#fff"/>
-            <!-- listón con el título -->
-            <path class="rg" d="M60,30 H940 L910,70 L940,110 H60 L90,70 Z"/>
-            <text x="500" y="80" text-anchor="middle" font-size="30">Dios me bendecirá a medida que elija seguir a Jesucristo</text>
-            <!-- Daniel 1: legumbres y agua -->
-            <rect class="rg" x="30" y="130" width="460" height="270" rx="18"/>
-            <text x="52" y="168" font-size="24">Daniel 1</text>
-            <path class="rg" d="M70,330 H450 V356 H70 Z"/>
-            <path class="rg" d="M95,356 H425 V392 H95 Z"/>
-            <ellipse class="rg" cx="210" cy="320" rx="120" ry="24"/>
-            <ellipse class="rg" cx="210" cy="316" rx="86" ry="14"/>
-            <path class="rg" d="M128,312 L238,290 Q252,296 240,308 Z"/>
-            <path class="ln" d="M242,294 l20,-16 M245,298 l24,-5 M243,303 l18,9"/>
-            <circle class="rg" cx="292" cy="290" r="26"/>
-            <path class="ln" d="M292,265 q2,-12 8,-18"/>
-            <path class="rg" d="M300,252 q18,-14 30,-2 q-14,12 -30,2 Z"/>
-            <circle class="rg" cx="168" cy="292" r="10"/><circle class="rg" cx="188" cy="292" r="10"/><circle class="rg" cx="178" cy="276" r="10"/>
-            <circle class="rg" cx="158" cy="276" r="10"/><circle class="rg" cx="198" cy="276" r="10"/><circle class="rg" cx="168" cy="260" r="10"/><circle class="rg" cx="188" cy="260" r="10"/>
-            <path class="rg" d="M370,215 L430,215 L420,330 L380,330 Z"/>
-            <path class="rg" d="M374,252 L426,252 L420,330 L380,330 Z"/>
-            <text x="400" y="200" text-anchor="middle" font-size="18">agua</text>
-            <text x="200" y="210" text-anchor="middle" font-size="18" class="faint">legumbres</text>
-            <!-- Daniel 3: el horno de fuego -->
-            <rect class="rg" x="510" y="130" width="460" height="270" rx="18"/>
-            <text x="532" y="168" font-size="24">Daniel 3</text>
-            <path class="rg" d="M560,392 V250 Q740,140 920,250 V392 Z"/>
-            <path class="rg" d="M640,392 V300 Q740,215 840,300 V392 Z"/>
-            <path class="rg" d="M655,392 Q650,340 680,320 Q676,350 700,340 Q690,300 730,280 Q725,320 750,330 Q760,300 780,300 Q772,330 800,340 Q815,320 826,330 Q830,365 825,392 Z"/>
-            <path class="rg" d="M582,270 h40 v22 h-40 Z"/><path class="rg" d="M858,270 h40 v22 h-40 Z"/><path class="rg" d="M574,320 h40 v22 h-40 Z"/><path class="rg" d="M866,320 h40 v22 h-40 Z"/><path class="rg" d="M582,362 h40 v22 h-40 Z"/><path class="rg" d="M858,362 h40 v22 h-40 Z"/>
-            <circle class="rg" cx="680" cy="342" r="11"/><path class="rg" d="M668,392 V362 Q680,352 692,362 V392 Z"/>
-            <circle class="rg" cx="718" cy="336" r="11"/><path class="rg" d="M706,392 V356 Q718,346 730,356 V392 Z"/>
-            <circle class="rg" cx="762" cy="336" r="11"/><path class="rg" d="M750,392 V356 Q762,346 774,356 V392 Z"/>
-            <circle class="rg" cx="800" cy="342" r="11"/><path class="rg" d="M788,392 V362 Q800,352 812,362 V392 Z"/>
-            <!-- Daniel 6: el león dormido -->
-            <rect class="rg" x="30" y="420" width="460" height="280" rx="18"/>
-            <text x="52" y="458" font-size="24">Daniel 6</text>
-            <path class="rg" d="M40,640 H480 V690 Q480,700 470,700 H50 Q40,700 40,690 Z"/>
-            <path class="rg" d="M358,556 Q372,565 358,574 Q344,583 352,596 Q361,610 344,612 Q327,614 329,630 Q330,646 314,641 Q297,636 291,651 Q285,665 272,655 Q260,644 248,655 Q235,665 229,651 Q223,636 206,641 Q190,646 191,630 Q193,614 176,612 Q159,610 168,596 Q176,583 162,574 Q148,565 162,556 Q176,547 168,534 Q159,520 176,518 Q193,516 191,500 Q190,484 206,489 Q223,494 229,479 Q235,465 248,475 Q260,486 272,475 Q285,465 291,479 Q297,494 314,489 Q330,484 329,500 Q327,516 344,518 Q361,520 352,534 Q344,547 358,556Z"/>
-            <circle class="rg" cx="208" cy="510" r="16"/><circle class="rg" cx="312" cy="510" r="16"/>
-            <circle class="rg" cx="260" cy="566" r="62"/>
-            <path class="ln" d="M228,552 q10,8 20,0 M272,552 q10,8 20,0"/>
-            <ellipse class="rg" cx="260" cy="590" rx="26" ry="18"/>
-            <path class="rg" d="M250,578 h20 l-10,10 Z"/>
-            <path class="ln" d="M260,588 v6 q-8,8 -14,2 M260,594 q8,8 14,2"/>
-            <text x="350" y="500" font-size="30">Z</text><text x="378" y="476" font-size="24">z</text><text x="398" y="458" font-size="18">z</text>
-            <!-- Mi decisión: dibujo libre -->
-            <rect class="rg" x="510" y="420" width="460" height="280" rx="18"/>
-            <text x="532" y="458" font-size="24">Yo elijo seguir a Jesucristo</text>
-            <text x="740" y="580" text-anchor="middle" font-size="22" class="faint">✏️ Usa «Dibujar» y dibújate aquí</text>
-          </svg>
-          <canvas id="drawLayer" aria-hidden="true"></canvas>
-        </div>
+      <div class="card tone3 videoCard">
+        <b>🎬 Videos de Daniel para ver con tus papás</b>
+        <p style="margin:6px 0">Están en la app <b>Biblioteca del Evangelio</b>, en «Relatos del Antiguo Testamento»: <i>Daniel y sus amigos</i>, <i>Sadrac, Mesac y Abed-nego</i> y <i>Daniel en el foso de los leones</i>. Después de verlos, platiquen: ¿qué hizo Daniel cuando le prohibieron orar?</p>
+        <a class="vlink" href="https://www.churchofjesuschrist.org/media/video/2010-12-43-chapter-43-daniel-and-the-lions-den?lang=spa" target="_blank" rel="noopener">▶ Ver «Daniel en el foso de los leones»</a>
       </div>
       <img class="logo" id="logoEnd" alt="Símbolo de La Iglesia de Jesucristo de los Santos de los Últimos Días">
     </div>
@@ -175,7 +132,7 @@
   <button id="next">Siguiente ▶</button>
 </nav>
 <canvas id="fx" aria-hidden="true"></canvas>
-<script type="module" src="main.js?v=1"></script>
-<script>addEventListener('load',()=>setTimeout(()=>{const m=[];if(getComputedStyle(document.documentElement).getPropertyValue('--v').trim()!=='1')m.push('style.css');if(window.__app!==1)m.push('main.js (o content.json, carousel.js, scrollstack.js)');if(m.length){const d=document.createElement('div');d.style.cssText='position:fixed;z-index:99;left:8px;right:8px;top:70px;background:#fff3cd;border:2px solid #e0a800;padding:10px;border-radius:12px;font:700 14px sans-serif;color:#222';d.textContent='⚠ Archivos desactualizados o ausentes: '+m.join(', ')+'. Súbelos y recarga con Ctrl+Shift+R.';document.body.append(d)}},2500))</script>
+<script type="module" src="main.js?v=2"></script>
+<script>addEventListener('load',()=>setTimeout(()=>{const m=[];if(getComputedStyle(document.documentElement).getPropertyValue('--v').trim()!=='2')m.push('style.css');if(window.__app!==2)m.push('main.js (o content.json, carousel.js, scrollstack.js)');if(m.length){const d=document.createElement('div');d.style.cssText='position:fixed;z-index:99;left:8px;right:8px;top:70px;background:#fff3cd;border:2px solid #e0a800;padding:10px;border-radius:12px;font:700 14px sans-serif;color:#222';d.textContent='⚠ Archivos desactualizados o ausentes: '+m.join(', ')+'. Súbelos y recarga con Ctrl+Shift+R.';document.body.append(d)}},2500))</script>
 </body>
 </html>
