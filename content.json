@@ -6,7 +6,8 @@
     "lideres": "Líderes de Egipto y Babilonia.jpg",
     "horno": "Shadrach, Meshach, and Abednego in the Fiery Furnace [Sadrac, Mesac y Abed-nego en el horno ardiente], por William Maughan.jpeg",
     "leones": "Daniel en la fosa de los leones.jpeg",
-    "colorear": "Confiar en la palabra de sabiduria.jpeg"
+    "colorear": "Confiar en la palabra de sabiduria.jpeg",
+    "hoja": "Páginas desdeDaniel 1 7.png"
   },
   "cards": [
     {
@@ -276,6 +277,12 @@
     }
   ],
   "week": [
+    {
+      "icon": "🎬",
+      "d": "Cine en familia",
+      "t": "Mira con tus papás los videos del profeta Daniel: «Daniel y sus amigos», «Sadrac, Mesac y Abed-nego» y «Daniel en el foso de los leones».",
+      "r": "Relatos del Antiguo Testamento"
+    },
     {
       "icon": "🙏",
       "d": "Ora como Daniel",
