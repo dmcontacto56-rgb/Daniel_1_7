@@ -1,5 +1,5 @@
 /* style.css — Valientes: Daniel 1–7 «No hay dios que pueda librar como este» */
-:root{--v:1;--f-title:'Fredoka',system-ui,sans-serif;--f-body:'Nunito',system-ui,sans-serif;--f-note:'Patrick Hand',cursive;
+:root{--v:2;--f-title:'Fredoka',system-ui,sans-serif;--f-body:'Nunito',system-ui,sans-serif;--f-note:'Patrick Hand',cursive;
 --b1:#0887F5;--b2:#24B5EF;--b3:#7CB8F0;--p:#C97BF0;--l:#9589EB;--ink:#1c2347;--card:#fff;--ok:#16a05a;--no:#e0393e;--bd:#cfe0fb;
 --gold:#f5b301;--fire:#ff7a1a;box-sizing:border-box}
 *,*::before,*::after{box-sizing:inherit}
@@ -163,10 +163,12 @@ button.week.flash{outline:4px solid #ffd23f;outline-offset:2px}
 .modeBtn{background:#fff;color:var(--ink);border:2px solid var(--bd);box-shadow:none;padding:6px 12px;min-height:40px}
 .modeBtn.on{background:linear-gradient(135deg,var(--b1),var(--p));color:#fff;border-color:#fff}
 .sheetWrap{position:relative;background:#fff;border-radius:18px;border:3px solid var(--bd);overflow:hidden;touch-action:none}
-.sheetWrap svg{display:block;width:100%;height:auto}
+.sheetWrap #paint{position:relative;display:block;width:100%;height:auto;pointer-events:auto;cursor:crosshair}
+.loading{padding:40px;text-align:center;font-family:var(--f-title);color:#6f62d6;margin:0}
+#tools{position:sticky;top:0;z-index:3;background:#e6f2ffee;padding:8px;margin:0 -8px;border-radius:14px;backdrop-filter:blur(6px)}
 .sheetWrap canvas{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
 .sheetWrap.draw canvas{pointer-events:auto}
-#sheet .rg{fill:#fff;stroke:#1c2347;stroke-width:3;stroke-linejoin:round;cursor:pointer;transition:fill .25s}
+#sheet .rg{/*v1*/fill:#fff;stroke:#1c2347;stroke-width:3;stroke-linejoin:round;cursor:pointer;transition:fill .25s}
 #sheet .rg:hover{stroke:#C97BF0}
 #sheet .ln{fill:none;stroke:#1c2347;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;pointer-events:none}
 #sheet text{font-family:var(--f-title);fill:#1c2347;pointer-events:none}
@@ -184,3 +186,9 @@ body.calm *{animation:none!important;transition:none!important}
   .bgscroll{background:none!important;box-shadow:none!important;overflow:visible}
   .sheetCard{border:0;box-shadow:none;padding:0}
 }
+
+/* ---- v2: videos para ver en familia ---- */
+.videoCard a.vlink{display:inline-block;margin-top:4px;padding:10px 16px;border-radius:14px;background:linear-gradient(135deg,#ff4d6d,#ff8c42);color:#fff;text-decoration:none;font-family:var(--f-title);box-shadow:0 4px 0 #b3471f}
+.videoCard a.vlink:hover{transform:translateY(-2px)}
+#weekCount{display:inline-block;background:#fff;padding:6px 16px;border-radius:99px;box-shadow:0 4px 14px rgba(0,0,0,.25)}
+#weekCount:empty{display:none}
