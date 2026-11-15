@@ -1,8 +1,8 @@
-import { setClickSound, click, cheer, fanfare, sparkle, oops, setMuted, isMuted } from './audio.js?v=1';
-import { confettiFrom, shake, ripple, sparkBurst, sparkFrom } from './effects.js?v=1';
-import { initCursor } from './cursor.js?v=1';
-import { createCarousel } from './carousel.js?v=1';
-import { createScrollStack } from './scrollstack.js?v=1';
+import { setClickSound, click, cheer, fanfare, sparkle, oops, setMuted, isMuted } from './audio.js?v=2';
+import { confettiFrom, shake, ripple, sparkBurst, sparkFrom } from './effects.js?v=2';
+import { initCursor } from './cursor.js?v=2';
+import { createCarousel } from './carousel.js?v=2';
+import { createScrollStack } from './scrollstack.js?v=2';
 
 const $ = (s, r = document) => r.querySelector(s);
 const h = (tag, cls, html) => { const e = document.createElement(tag); if (cls) e.className = cls; if (html != null) e.innerHTML = html; return e; };
@@ -17,7 +17,7 @@ let cur = 0, D;
 async function boot() {
   try { D = await (await fetch('content.json')).json(); }
   catch (e) { $('#stage').innerHTML = '<p class="card">No se pudo cargar content.json. Abre la página desde GitHub Pages o un servidor local (python servir.py), no con doble clic.</p>'; return; }
-  window.__app = 1;
+  window.__app = 2;
   const M = D.meta;
   setClickSound(U(M.clickSound));
   document.addEventListener('click', click);
@@ -125,7 +125,7 @@ async function boot() {
   $('#refBtn').onclick = e => { const t = $('#refTxt').value.trim(); if (!t) return; $('#refOut').textContent = '💗 ' + t; confettiFrom(e.currentTarget, 80); sparkFrom(e.currentTarget, 3); fanfare(); };
 
   /* ---- 6. Misión de la semana: cada misión cumplida duerme a un león ---- */
-  const KEY = 'valientes-daniel-week';
+  const KEY = 'valientes-daniel-week-v2';
   inits['s-week'] = () => {
     const box = $('#week'); box.innerHTML = ''; let saved = [];
     try { saved = JSON.parse(localStorage.getItem(KEY) || '[]'); } catch (e) { /* sin almacenamiento */ }
@@ -186,38 +186,74 @@ function initBgScroll() {
   });
 }
 
-/* ---- Colorear: rellenar con un toque o dibujar a mano ---- */
+/* ---- Colorear la hoja del manual: relleno por zonas (como bote de pintura) o dibujo a mano ---- */
 const PALETTE = ['#ff4d4d', '#ff8c42', '#ffd23f', '#8bd450', '#2e9e4f', '#7ec8ff', '#0887F5', '#7a4fe0', '#ff7eb6', '#a8682f', '#f2c9a0', '#9aa3b5', '#1c2347', '#ffffff'];
-let color = PALETTE[0], mode = 'fill', ctx;
+const SHEET_W = 1500;                 // resolución de trabajo de la hoja
+let color = PALETTE[0], mode = 'fill', pctx, dctx, base = null, lum = null, undo = [];
 function initColoring() {
   const sw = $('#swatches');
   PALETTE.forEach((c, i) => { const b = h('button', 'swatch' + (i ? '' : ' on')); b.style.background = c; b.setAttribute('aria-label', 'Color ' + c); b.onclick = () => { color = c; sw.querySelectorAll('.swatch').forEach(x => x.classList.toggle('on', x === b)); }; sw.append(b); });
   document.querySelectorAll('.modeBtn[data-mode]').forEach(b => b.onclick = () => { mode = b.dataset.mode; document.querySelectorAll('.modeBtn[data-mode]').forEach(x => x.classList.toggle('on', x === b)); $('#sheetWrap').classList.toggle('draw', mode === 'draw'); });
-  $('#sheet').addEventListener('click', e => { if (mode !== 'fill') return; const r = e.target.closest('.rg'); if (!r) return; r.style.fill = color; });
-  const cv = $('#drawLayer'); ctx = cv.getContext('2d');
-  const fit = () => { const r = cv.getBoundingClientRect(); if (!r.width) return; const img = cv.width ? ctx.getImageData(0, 0, cv.width, cv.height) : null; const d = devicePixelRatio || 1; const w = Math.round(r.width * d), hh = Math.round(r.height * d); if (w === cv.width && hh === cv.height) return; const tmp = document.createElement('canvas'); tmp.width = cv.width; tmp.height = cv.height; if (img) tmp.getContext('2d').putImageData(img, 0, 0); cv.width = w; cv.height = hh; if (tmp.width) ctx.drawImage(tmp, 0, 0, w, hh); };
-  new ResizeObserver(fit).observe(cv);
+  const pc = $('#paint'), dc = $('#drawLayer');
+  pctx = pc.getContext('2d', { willReadFrequently: true }); dctx = dc.getContext('2d', { willReadFrequently: true });
+  const img = new Image();
+  img.onload = () => {
+    const W = SHEET_W, H = Math.round(img.naturalHeight * W / img.naturalWidth);
+    pc.width = dc.width = W; pc.height = dc.height = H;
+    pctx.fillStyle = '#fff'; pctx.fillRect(0, 0, W, H); pctx.drawImage(img, 0, 0, W, H);
+    base = pctx.getImageData(0, 0, W, H);
+    lum = new Uint8Array(W * H);
+    for (let i = 0, d = base.data; i < lum.length; i++) lum[i] = (d[i * 4] * 299 + d[i * 4 + 1] * 587 + d[i * 4 + 2] * 114) / 1000;
+    $('#sheetLoading').remove();
+  };
+  img.onerror = () => { $('#sheetLoading').textContent = '⚠ No se encontró la imagen: ' + D.meta.hoja; };
+  img.src = U(D.meta.hoja);
+  const pos = (cv, e) => { const r = cv.getBoundingClientRect(); return [Math.floor((e.clientX - r.left) * cv.width / r.width), Math.floor((e.clientY - r.top) * cv.height / r.height)]; };
+  pc.addEventListener('click', e => { if (mode !== 'fill' || !lum) return; const [x, y] = pos(pc, e); if (fill(x, y)) sparkle(); });
   let drawing = false, last = null;
-  const pos = e => { const r = cv.getBoundingClientRect(); return [(e.clientX - r.left) * cv.width / r.width, (e.clientY - r.top) * cv.height / r.height]; };
-  cv.addEventListener('pointerdown', e => { drawing = true; last = pos(e); cv.setPointerCapture(e.pointerId); dot(last); });
-  cv.addEventListener('pointermove', e => { if (!drawing) return; const p = pos(e); ctx.strokeStyle = color; ctx.lineWidth = 7 * (devicePixelRatio || 1); ctx.lineCap = 'round'; ctx.lineJoin = 'round'; ctx.beginPath(); ctx.moveTo(...last); ctx.lineTo(...p); ctx.stroke(); last = p; });
-  const stop = () => { drawing = false; }; cv.addEventListener('pointerup', stop); cv.addEventListener('pointercancel', stop);
-  const dot = p => { ctx.fillStyle = color; ctx.beginPath(); ctx.arc(p[0], p[1], 3.5 * (devicePixelRatio || 1), 0, 6.28); ctx.fill(); };
+  const width = () => 7 * dc.width / dc.getBoundingClientRect().width;
+  dc.addEventListener('pointerdown', e => { if (!lum) return; drawing = true; last = pos(dc, e); dc.setPointerCapture(e.pointerId); pushUndo(); dctx.fillStyle = color; dctx.beginPath(); dctx.arc(last[0], last[1], width() / 2, 0, 6.28); dctx.fill(); });
+  dc.addEventListener('pointermove', e => { if (!drawing) return; const p = pos(dc, e); dctx.strokeStyle = color; dctx.lineWidth = width(); dctx.lineCap = 'round'; dctx.lineJoin = 'round'; dctx.beginPath(); dctx.moveTo(...last); dctx.lineTo(...p); dctx.stroke(); last = p; });
+  const stop = () => { drawing = false; }; dc.addEventListener('pointerup', stop); dc.addEventListener('pointercancel', stop);
+  $('#undoBtn').onclick = () => { const st = undo.pop(); if (!st) return; pctx.putImageData(st.p, 0, 0); dctx.putImageData(st.d, 0, 0); };
   $('#printBtn').onclick = () => window.print();
   $('#saveImg').onclick = saveSheet;
 }
-function clearSheet() { document.querySelectorAll('#sheet .rg').forEach(r => { r.style.fill = ''; }); const cv = $('#drawLayer'); ctx?.clearRect(0, 0, cv.width, cv.height); }
-async function saveSheet() {
-  const svg = $('#sheet').cloneNode(true);
-  svg.querySelectorAll('.rg').forEach(r => { r.setAttribute('fill', r.style.fill || '#fff'); r.setAttribute('stroke', '#1c2347'); r.setAttribute('stroke-width', '3'); });
-  svg.querySelectorAll('.ln').forEach(r => { r.setAttribute('fill', 'none'); r.setAttribute('stroke', '#1c2347'); r.setAttribute('stroke-width', '3'); r.setAttribute('stroke-linecap', 'round'); });
-  svg.querySelectorAll('text').forEach(t => { t.setAttribute('font-family', 'Fredoka, sans-serif'); t.setAttribute('fill', t.classList.contains('faint') ? '#9aa6c8' : '#1c2347'); });
-  svg.setAttribute('xmlns', 'http://www.w3.org/2000/svg'); svg.setAttribute('width', 2000); svg.setAttribute('height', 1440);
-  const img = new Image(); img.src = 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(new XMLSerializer().serializeToString(svg));
-  await img.decode().catch(() => {});
-  const out = document.createElement('canvas'); out.width = 2000; out.height = 1440; const o = out.getContext('2d');
-  o.drawImage(img, 0, 0, 2000, 1440); o.drawImage($('#drawLayer'), 0, 0, 2000, 1440);
-  const a = document.createElement('a'); a.download = 'mi-dibujo-daniel.png'; a.href = out.toDataURL('image/png'); a.click();
+function pushUndo() { if (!lum) return; const W = $('#paint').width, H = $('#paint').height; undo.push({ p: pctx.getImageData(0, 0, W, H), d: dctx.getImageData(0, 0, W, H) }); if (undo.length > 6) undo.shift(); }
+// Relleno: pinta todos los píxeles claros conectados al punto tocado; las líneas negras hacen de borde.
+function fill(x0, y0) {
+  const cv = $('#paint'), W = cv.width, H = cv.height, LINE = 150;
+  if (x0 < 0 || y0 < 0 || x0 >= W || y0 >= H || lum[y0 * W + x0] < LINE) return false;
+  pushUndo();
+  const img = pctx.getImageData(0, 0, W, H), d = img.data;
+  const r = parseInt(color.slice(1, 3), 16), g = parseInt(color.slice(3, 5), 16), b = parseInt(color.slice(5, 7), 16);
+  const seen = new Uint8Array(W * H), stack = [y0 * W + x0];
+  while (stack.length) {
+    let i = stack.pop(); if (seen[i]) continue;
+    const y = (i / W) | 0; let x = i - y * W;
+    while (x > 0 && !seen[i - 1] && lum[i - 1] >= LINE) { x--; i--; }   // ir al inicio de la fila
+    let up = false, down = false;
+    for (; x < W && !seen[i] && lum[i] >= LINE; x++, i++) {
+      seen[i] = 1; const k = lum[i] / 255, p = i * 4;
+      d[p] = r * k; d[p + 1] = g * k; d[p + 2] = b * k;                   // conserva el sombreado del borde
+      if (y > 0) { const u = i - W; if (!seen[u] && lum[u] >= LINE) { if (!up) { stack.push(u); up = true; } } else up = false; }
+      if (y < H - 1) { const v = i + W; if (!seen[v] && lum[v] >= LINE) { if (!down) { stack.push(v); down = true; } } else down = false; }
+    }
+  }
+  // repasa los bordes grises (antialias) junto a lo pintado para que no queden halos blancos
+  for (let i = W; i < W * (H - 1); i++) {
+    if (seen[i] || lum[i] < 60 || lum[i] >= LINE) continue;
+    if (seen[i - 1] || seen[i + 1] || seen[i - W] || seen[i + W]) { const k = lum[i] / 255, p = i * 4; d[p] = r * k; d[p + 1] = g * k; d[p + 2] = b * k; }
+  }
+  pctx.putImageData(img, 0, 0);
+  return true;
+}
+function clearSheet() { if (!base) return; pctx.putImageData(base, 0, 0); const dc = $('#drawLayer'); dctx.clearRect(0, 0, dc.width, dc.height); undo = []; }
+function saveSheet() {
+  const pc = $('#paint'); if (!lum) return;
+  const out = document.createElement('canvas'); out.width = pc.width; out.height = pc.height;
+  const o = out.getContext('2d'); o.drawImage(pc, 0, 0); o.drawImage($('#drawLayer'), 0, 0);
+  const a = document.createElement('a'); a.download = 'mi-hoja-daniel.png'; a.href = out.toDataURL('image/png'); a.click();
   fanfare();
 }
 
