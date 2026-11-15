@@ -1,8 +1,8 @@
-import { setClickSound, click, cheer, fanfare, sparkle, oops, setMuted, isMuted } from './audio.js?v=2';
-import { confettiFrom, shake, ripple, sparkBurst, sparkFrom } from './effects.js?v=2';
-import { initCursor } from './cursor.js?v=2';
-import { createCarousel } from './carousel.js?v=2';
-import { createScrollStack } from './scrollstack.js?v=2';
+import { setClickSound, click, cheer, fanfare, sparkle, oops, setMuted, isMuted } from './audio.js?v=3';
+import { confettiFrom, shake, ripple, sparkBurst, sparkFrom } from './effects.js?v=3';
+import { initCursor } from './cursor.js?v=3';
+import { createCarousel } from './carousel.js?v=3';
+import { createScrollStack } from './scrollstack.js?v=3';
 
 const $ = (s, r = document) => r.querySelector(s);
 const h = (tag, cls, html) => { const e = document.createElement(tag); if (cls) e.className = cls; if (html != null) e.innerHTML = html; return e; };
@@ -17,7 +17,7 @@ let cur = 0, D;
 async function boot() {
   try { D = await (await fetch('content.json')).json(); }
   catch (e) { $('#stage').innerHTML = '<p class="card">No se pudo cargar content.json. Abre la página desde GitHub Pages o un servidor local (python servir.py), no con doble clic.</p>'; return; }
-  window.__app = 2;
+  window.__app = 3;
   const M = D.meta;
   setClickSound(U(M.clickSound));
   document.addEventListener('click', click);
@@ -50,8 +50,9 @@ async function boot() {
     const cards = D.cards.map((k, i) => {
       const c = h('div', 'mcard k' + (i % 5));
       c.innerHTML = `<div class="front"><span class="ico">${k.icon}</span><h3>${k.title}</h3><p>👆 Toca para descubrir la escritura</p></div>
-        <div class="back"><p class="ref">${k.icon} ${k.ref}</p><p class="verse${k.v.length > 230 ? ' long' : ''}">«${k.v}»</p>
-        <div class="hid ins" role="button" tabindex="0"><span class="txt">✏️ Busca <mark>${k.ref}</mark> en tus Escrituras y subráyala.</span></div>
+        <div class="back"><p class="ref">${k.icon} ${k.ref}</p>
+        <p class="ins">✏️ Busca <mark>${k.ref}</mark> en tus Escrituras y subráyala.</p>
+        <div class="hid verse${k.v.length > 230 ? ' long' : ''}" role="button" tabindex="0"><span class="txt">«${k.v}»</span></div>
         <div class="hid q" role="button" tabindex="0"><span class="txt">💭 ${k.q}</span></div></div>`;
       const upd = () => { const n = document.querySelectorAll('#carousel .mcard.done').length; $('#cardsCount').textContent = `Misiones completadas: ${n}/${D.cards.length}` + (n === D.cards.length ? ' 🏆' : ''); if (n === D.cards.length) fanfare(); };
       const showHid = (el, e) => {
